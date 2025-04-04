@@ -1,0 +1,72 @@
+import { useCallback, useState, useEffect } from "react";
+
+export async function sendHttpRequest(url, config) {
+    const response = await fetch(url, config);
+
+    const resData = await response.json();
+
+    if (!response.ok) {
+        throw new Error(
+            resData.message || 'Something went wrong, failed to send request.'
+        );
+    }
+
+    return resData;
+}
+
+
+export function useHttp(url, config, initialData) {
+
+    const [data, setData] = useState(initialData);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState();
+
+    const [retry, setRetry] = useState(0);
+    function clearData() {
+        setData(initialData);
+    }
+
+
+
+    function clearData() {
+        setData(initialData);
+    }
+
+    const handleErrorBtn = useCallback(() => {
+        setError(null);
+        setRetry((prev) => prev + 1);
+    }, []);
+
+
+
+    const sendRequest = useCallback(
+        async function sendRequest(data) {
+            setIsLoading(true);
+            try {
+                const resData = await sendHttpRequest(url, { ...config, body: data });
+                setData(resData);
+            } catch (error) {
+                setError(error.message || 'Something went wrong!');
+            }
+            setIsLoading(false);
+        },
+        [url, config]
+    );
+
+    useEffect(() => {
+        if ((config && (config.method === 'GET' || !config.method)) || !config) {
+            sendRequest();
+        }
+    }, [sendRequest, config, retry]);
+
+    return {
+        data,
+        isLoading,
+        error,
+        sendRequest,
+        clearData,
+        handleErrorBtn
+    };
+
+}
+

@@ -1,0 +1,16 @@
+
+
+.analyzer  {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+.analyzer__title {
+	font-size: 2rem;
+
+}
+.analyzer_subtitle {
+	font-size: 2rem;
+	color: var(--color-green);
+}

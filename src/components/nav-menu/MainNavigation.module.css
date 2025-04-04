@@ -1,0 +1,148 @@
+
+
+/* ------Mobile nav menu------ */
+.navMenuMobile {
+	display: block;
+	margin-bottom: 3rem;
+}
+.navMenuMobile__logo {
+	margin-top: 2rem;
+}
+
+.navMenuMobile__wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	right: 24%;
+	width: 100%;
+	height: 3.75rem;
+	padding: 0.9375rem;
+}
+
+.navMenuMobile__toggle {
+	position: absolute;
+	top: 16px;
+	left: 109%;
+	z-index: 1;
+
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.navMenuMobile__toggle a {
+	text-decoration: none;
+	color: #232323;
+	transition: background 0.3s ease;
+}
+
+.navMenuMobile__toggle_active,.navMenuMobile__toggle a:hover {
+	padding: 0.2rem;
+	border-radius: 8px;
+	background: rgba(71, 175, 71, 0.69);
+}
+
+
+.navMenuMobile__toggle input {
+	display: block;
+	width: 40px;
+	height: 32px;
+	position: absolute;
+	top: -7px;
+	left: -5px;
+
+	cursor: pointer;
+
+	opacity: 0; /* hide this */
+	z-index: 2; /* and place it over the hamburger */
+
+	-webkit-touch-callout: none;
+}
+
+
+.navMenuMobile__toggle span {
+	display: block;
+	width: 33px;
+	height: 4px;
+	margin-bottom: 5px;
+	position: relative;
+
+	background: black;
+	border-radius: 3px;
+
+	z-index: 1;
+
+	transform-origin: 4px 0px;
+
+	transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+	background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+	opacity 0.55s ease;
+}
+/* Apply this to the first span */
+.navMenuMobile__toggle span:first-child {
+	transform-origin: 0% 0%;
+}
+
+/* Apply this to the second span */
+.navMenuMobile__toggle span:nth-last-child(2) {
+	transform-origin: 0% 100%;
+}
+
+/* When checked: Rotate spans */
+.navMenuMobile__toggle input:checked ~ span {
+	opacity: 1;
+	transform: rotate(45deg) translate(-2px, -1px);
+	background: #232323;
+}
+
+/* When checked: Hide the middle span */
+.navMenuMobile__toggle input:checked ~ span:nth-last-child(3) {
+	opacity: 0;
+	transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/* When checked: Rotate the last span */
+.navMenuMobile__toggle input:checked ~ span:nth-last-child(2) {
+	transform: rotate(-45deg) translate(0, -1px);
+}
+.navMenuMobile__toggle input:checked ~ .navMenuMobile__menuList {
+	visibility: visible;
+}
+.navMenuMobile__menuList {
+	position: absolute;
+	visibility: hidden;
+	max-width: 400px;
+	width: 100vw;
+	max-height: 100vh;
+	margin: -100px 0 0 -200px;
+	padding: 125px 50px 50px;
+	box-sizing: border-box;
+	overflow-y: auto;
+	background: rgba(251, 252, 251, 0.95);
+	list-style-type: none;
+	-webkit-font-smoothing: antialiased;
+	/* to stop flickering of text in safari */
+	border-radius: 30px;
+
+	transform-origin: 100% 0; /* Move transform origin to right */
+	transform: translate(100%, 0); /* Move menu off-screen to the right */
+
+	transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.navMenuMobile__menuList li {
+	padding: 10px 0;
+	font-size: 22px;
+}
+
+.navMenuMobile__menuList li label {
+	cursor: pointer;
+}
+
+
+.navMenuMobile__toggle input:checked ~ ul{
+	transform: none;
+}
+

@@ -1,0 +1,30 @@
+.gender {
+	display: flex;
+	justify-content: center;
+	gap:2rem;
+}
+.gender_item {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	max-width: 17.5rem;
+	width: 100%;
+
+	border: 2.2px solid var(--color-green);
+	border-radius: 0.625rem;
+	cursor: pointer;
+}
+.gender__image {
+	background: grey;
+
+	height: 125px;
+	object-fit: cover;
+}
+.gender_item h3 {
+	justify-self: flex-end;
+	background: var(--color-green);
+	color: var(--color-light);
+	border-bottom: 0.625rem;
+	margin-bottom: 0;
+	border-end-end-radius: 0.625rem;
+}

@@ -1,0 +1,32 @@
+
+.question {
+	opacity: 0;
+	animation: slideInFromLeft 1.5s ease-out forwards; /* Define the slide-in animation */
+}
+
+/* Keyframes for Slide-In from Left */
+@keyframes slideInFromLeft {
+	0% {
+		opacity: 0;
+	}
+	100% {
+
+		opacity: 1;
+	}
+}
+.question_img_wrap {
+
+	max-width: 28rem;
+	height: 25.5rem;
+	width: 100%;
+	margin: 0 auto;
+	margin-bottom: 1.25rem;
+	background: #000;
+	border-radius: 25px;
+	border: 2px solid var(--color-dark);
+
+}
+.question_img_wrap  {
+	border-radius: 25px;
+	object-fit: cover;
+}

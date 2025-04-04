@@ -1,0 +1,92 @@
+/* Modal Background Overlay */
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+}
+
+/* Modal Box */
+.modal-box {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	width: 300px; /* Fixed width */
+	text-align: center;
+}
+.progress-section {
+	margin-bottom: 130px;
+}
+/* Progress Bar Container */
+.progress-bar-container {
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+/* Progress Bar Label */
+.progress-label {
+	margin-bottom: 5px;
+	float: right;
+	color: black;
+	font-size: 1.3rem;
+}
+.progress-label-text {
+	margin-bottom: 5px;
+	float: left;
+	color: black;
+	font-size: 1.6rem;
+
+}
+/* Progress Bar Background */
+.progress-bar-bg {
+	width: 100%;
+	height: 10px;
+	background-color: #e0e0e0;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+/* Progress Bar Filled Part */
+.progress-bar-fill {
+	height: 100%;
+	transition: width 0.2s;
+}
+
+/* Completed Progress Bar */
+.progress-bar-fill.completed {
+	background-color: #30aca1; /* Green when complete */
+}
+
+/* Ongoing Progress Bar */
+.progress-bar-fill.ongoing {
+	background-color: rgba(48, 172, 161, 0.8); /* Blue-ish when ongoing */
+}
+.modal-btn-box {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+
+}
+/* Button Style */
+.modal-button {
+	flex: 1 0 auto;
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: #30aca1;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.modal-button:hover {
+	background-color: #248d7e; /* Darker shade on hover */
+}
