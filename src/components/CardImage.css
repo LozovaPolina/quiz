@@ -1,0 +1,34 @@
+.start_images {
+	width: 100%;
+	max-width: 200px;
+	margin: 0 auto;
+	margin-top: 100px;
+	margin-bottom: 30px;
+}
+.start_images_wrap {
+	margin: 0 auto;
+	width: 300px;
+	height: 400px; /* Or any height you want */
+	background-image: url("../assets/img/checkered-min.png");
+	background-size: cover;       /* Make image cover entire div */
+	background-position: center;  /* Center the image */
+	background-repeat: no-repeat; /* Prevent tiling */
+	border-radius: 12px;          /* Optional: rounded corners */
+	position: relative;/* Optional: shadow */
+}
+
+
+.img_card_bg {
+	position: absolute;
+	z-index: -1;
+	width: 200px;
+	transform: rotate(2deg);
+	object-fit: cover;
+	top: 97px;
+	right: 89px;
+}
+.img_card {
+	width: 100%;
+	transform: rotate(15deg);
+	object-fit: cover;
+}

@@ -1,0 +1,28 @@
+.card-item{
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+	margin-bottom: 40px;
+}
+.card-image {
+	width: 100%;
+	max-width: 280px;
+}
+.card-content {
+	width: 280px;
+}
+.card-image img {
+	width: 100%;
+}
+.card-content h3 {
+	font-size: 2rem;
+	margin-bottom: 10px;
+}
+.card-content p {
+	font-size: 1.3rem;
+	color: var(--color-dark);
+}
+.main-points {
+	margin-bottom: 40px;
+}

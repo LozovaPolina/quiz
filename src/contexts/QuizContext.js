@@ -8,14 +8,15 @@ const SECS_PER_QUESTION = 30;
 
 const initialState = {
   questions: [],
+  // 0 - female, 1 - male,
   gender: null,
+  // 0 -(18-24), 1 - (25-34), 2-(35-44),3-(45-60),4-(60+)
   age: null,
   // 'loading', 'error', 'ready', 'active', 'finished'
   status: "loading",
   index: 0,
   answer: [],
   points: 0,
-  highscore: 0,
   secondsRemaining: null,
   paymentPlan: ''
 };
@@ -78,15 +79,14 @@ function reducer(state, action) {
       return { ...state, index: state.index - 1,  };
     case "finish":
       const pointsSum = state.answer.reduce((acc,cur,i) => {
-        return cur === state.questions[i].correctOption // Check if the selected answer is correct
-            ? acc + state.questions[i].points // Add the question's points if correct
+        return cur === state.questions[i].correct_option - 1// Check if the selected answer is correct
+            ? acc + state.questions[i].score // Add the question's points if correct
             : acc;
       }, 0)
       return {
         ...state,
         status: "finished",
         points: pointsSum,
-        // highscore: state.points > state.highscore ? state.points : state.highscore,
       };
     case "restart":
       return { ...initialState, questions: state.questions, status: "ready" };
@@ -109,7 +109,7 @@ function reducer(state, action) {
 
 function QuizProvider({ children }) {
   const [
-    { questions, status, index, answer, points, highscore, secondsRemaining,age,gender,paymentPlan },
+    { questions, status, index, answer, points,  secondsRemaining,age,gender,paymentPlan },
     dispatch,
   ] = useReducer(reducer, getInitialState());
 
@@ -125,7 +125,6 @@ function QuizProvider({ children }) {
       index,
       answer,
       points,
-      highscore,
       age,
       gender,
       paymentPlan
@@ -138,7 +137,6 @@ function QuizProvider({ children }) {
     index,
     answer,
     points,
-    highscore,
     secondsRemaining,
     age,
     gender,
@@ -159,7 +157,6 @@ function QuizProvider({ children }) {
         index,
         answer,
         points,
-        highscore,
         secondsRemaining,
         numQuestions,
         maxPossiblePoints,

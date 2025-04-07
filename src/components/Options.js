@@ -26,13 +26,13 @@ function Options({ question }) {
         <p className={'options_text'} >Select the answer:</p>
         <div className="options">
 
-          {question.options.map((option, i) => (
+          {[question.option_1,question.option_2,question.option_3,question.option_4].map((option, i) => (
               <div
                   className={`btn btn-option ${i === answer[index] ? "answer" : ""}`}
                   key={option}
                   onClick={() => onClickHandler(i)}
               >
-                  <img src={option.src} alt={option.alt}/>
+                  <img src={option} alt='option'/>
               </div>
           ))}
         </div>

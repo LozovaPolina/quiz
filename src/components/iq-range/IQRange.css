@@ -1,0 +1,53 @@
+.range-wrap  {
+	background: rgba(231, 231, 231, 0.7);
+	padding: 20px;
+	border-radius: 20px;
+}
+.flex-wrap {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+
+}
+.iq-range {
+	margin: 0 auto;
+}
+.iq-range-item {
+	display: flex;
+	margin-bottom: 42px;
+}
+
+.iq-range-item:last-child {
+	margin-bottom: 0; /* Remove margin from last item */
+}
+
+.iq-range-label {
+	font-weight: 600; /* font-semibold */
+	width: 110px;
+	text-align: left;
+	color: rgb(25, 25, 25);
+	font-size: 2rem;
+}
+
+.iq-range-description {
+	font-weight: 600; /* font-semibold */
+	margin-left: 20px;
+	color: rgb(136, 147, 172);
+	font-size: 20px;
+	line-height: 130%;
+}
+
+.iq-range-arrow {
+	color: transparent;
+	width: 7px;
+	height: 14px;
+}
+.range_img {
+	max-width: 320px;
+	width: 100%;
+}
+.range_img img {
+
+	width: 100%;
+	object-fit: cover;
+}

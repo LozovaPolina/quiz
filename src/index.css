@@ -27,8 +27,8 @@ html {
 body {
   min-height: 100vh;
   color: var( --color-darkest);
-  background-color: whitesmoke;
   padding: 2rem 2rem 2rem 2rem;
+
 }
 
 .app {
@@ -261,11 +261,7 @@ h4 {
   padding: 0.8rem;
 }
 
-.legal_footer {
-  position: fixed;
-  bottom: 0.625rem;
-  left: 0;
-}
+
 .legal_text {
   width: 90%;
   color: darkgrey;

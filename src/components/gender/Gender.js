@@ -11,14 +11,14 @@ function Gender() {
 	}
 	return (
 		<div className="gender">
-			<div className="gender_item" onClick={() => onGenderSelect('male')}>
+			<div className="gender_item" onClick={() => onGenderSelect(0)}>
 				<div className="gender__image">
 					<img src="" alt=""/>
 				</div>
 				<h3>Male</h3>
 			</div>
 
-			<div className="gender_item"  onClick={() => onGenderSelect('female')}>
+			<div className="gender_item"  onClick={() => onGenderSelect(1)}>
 				<div className="gender__image">
 					<img src="" alt=""/>
 				</div>

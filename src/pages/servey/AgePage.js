@@ -14,7 +14,7 @@ function AgePage() {
 	}
 	useEffect(()=> {
 		if(age !== null ) {
-			navigate('/payment')
+			navigate('/email')
 		}
 	},[])
 	return (
@@ -22,11 +22,11 @@ function AgePage() {
 		<div>
 			<h4>What's your age?</h4>
 			<div className="options">
-				{['18-24', '25-34', '35-44', '25-60', '60+'].map((option, index) => (
+				{['18-24', '25-34', '35-44', '45-60', '60+'].map((option, index) => (
 					<button
 						className={`btn btn_age`}
 						key={option}
-						onClick={() =>onAgeHandler(option) }
+						onClick={() =>onAgeHandler(index) }
 					>
 						{option}
 					</button>

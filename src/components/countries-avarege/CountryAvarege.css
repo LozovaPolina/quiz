@@ -1,0 +1,61 @@
+/* CountryList.css */
+
+/* Container for each country in the list */
+.country-item {
+	background-color: #f2f2f2; /* equivalent to bg-grey-bg */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 600; /* font-semibold */
+
+	max-width: 100%; /* max-w-[94%] */
+	padding: 20px;
+	padding-left: 15px; /* xs:p-[30px], but only left padding */
+	text-size: 1rem; /* text-md/6, default text size */
+}
+
+.country-item img {
+	margin-right: 1.5rem; /* mr-6 */
+}
+
+.country-item .rank {
+	margin-right: 2.5rem; /* lg:mr-10 */
+}
+
+.country-item .flag-container {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	width: 200px;
+}
+
+.country-item .flag-container img {
+	width: 80px;
+	height: 54px;
+}
+
+.country-item .country-name {
+	text-align: left;
+}
+
+.country-item .points {
+	font-size: 1.25rem; /* sm:text-xl/7 */
+}
+
+@media (min-width: 576px) {
+	.country-item {
+		padding: 30px; /* xs:p-[30px] */
+	}
+	.country-item .points {
+		font-size: 1.5rem; /* sm:text-xl/7 */
+	}
+}
+
+@media (min-width: 768px) {
+	.country-item {
+		font-size: 1.125rem; /* sm:text-lg/7 */
+	}
+	.country-item .rank {
+		margin-right: 2rem;
+	}
+}

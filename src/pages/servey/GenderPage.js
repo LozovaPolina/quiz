@@ -8,7 +8,7 @@ function GenderPage() {
 	const navigate = useNavigate();
 	useEffect(()=> {
 		if(gender !== null && status === "finished") {
-			navigate('/payment')
+			navigate('/email')
 		}else if(gender !== null &&  age ===null) {
 			navigate('/age')
 		}
