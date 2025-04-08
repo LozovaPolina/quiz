@@ -3,7 +3,7 @@ import {useInput} from "../../hooks/useInput";
 import Input from "../UI/Input";
 import {isEmail, isNotEmpty} from "../../util/validation";
 import {POST_EMAIL_LINK,requestConfig} from "../../util/http";
-import {useHttp} from "../../hooks/usehttp";
+import {sendHttpRequest, useHttp} from "../../hooks/usehttp";
 import {useNavigate} from "react-router";
 import './FormEmail.css'
 import {useQuiz} from "../../contexts/QuizContext";
@@ -16,23 +16,15 @@ function FormEmail() {
 		handleInputChange: handleEmailChange,
 		hasError: emailHasError,
 	} = useInput("", (value) => isEmail(value) && isNotEmpty(value));
-	const { data, isLoading, error, sendRequest } =
-		useHttp(POST_EMAIL_LINK, requestConfig);
+	const { data, isLoading, error, sendRequest } = useHttp(POST_EMAIL_LINK, requestConfig );
 
-
+	console.log(error)
 	async function handleSubmit(e) {
 		e.preventDefault();
 		const fd = new FormData(e.target);
 		const formData = Object.fromEntries(fd.entries());
-		console.log({
-			email: formData.email,
-			gender,
-			age: +age,
-			score: points,
-			time_test: seconds
-		});
 		sendRequest(
-			JSON.stringify({email: formData.email,gender, age: +age, score:points, time_test:seconds })
+			JSON.stringify({email: formData.email,gender, age: age, score:points, time_test:seconds })
 		);
 	}
 	// Example { "gender": "F", "age": "2", "email": "artem.kovalyk79@gmail.com", "score": "1123111", "time_test": 1 }
@@ -49,10 +41,10 @@ function FormEmail() {
 		actions = <button type="submit" disabled={true} className="btn btn-form">Sending data</button>;
 	}
 
-	if (data && !error) {
-		return (
-			navigate('/')
-		);
+	if (data === 'data posted'  && !error) {
+
+			navigate('/payment')
+
 	}
 	return (
 		<form onSubmit={handleSubmit}>
