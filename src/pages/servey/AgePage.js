@@ -14,7 +14,7 @@ function AgePage() {
 	}
 	useEffect(()=> {
 		if(age !== null ) {
-			navigate('/email')
+			navigate('/answer/email')
 		}
 	},[])
 	return (
@@ -26,7 +26,7 @@ function AgePage() {
 					<button
 						className={`btn btn_age`}
 						key={option}
-						onClick={() =>onAgeHandler(index) }
+						onClick={() =>onAgeHandler(index+1) }
 					>
 						{option}
 					</button>

@@ -3,7 +3,7 @@ import {QUESTION_LINK} from "../util/http";
 
 const QuizContext = createContext();
 
-const SECS_PER_QUESTION = 30;
+const SECS_PER_QUESTION = 360;
 
 
 const initialState = {
@@ -52,6 +52,7 @@ function reducer(state, action) {
         ...state,
         questions: action.payload,
         status: "ready",
+        // answer: Array.from({length: state.questions.length }).fill(' ')
       };
     case "dataFailed":
       return {
@@ -63,23 +64,30 @@ function reducer(state, action) {
         ...state,
         status: "active",
         secondsRemaining: state.questions.length * SECS_PER_QUESTION,
+        seconds: state.questions.length * SECS_PER_QUESTION
       };
     case "newAnswer":
       const question = state.questions.at(state.index);
-      const copyArray  =[...state.answer]
-      copyArray[state.index] = action.payload;
+      const copyArray  = [...state.answer]
+      if(copyArray.length === 0) {
+        copyArray.push(action.payload)
+      } else  {
+        copyArray[state.index] = action.payload;
+        console.log(copyArray)
+      }
+
       return {
         ...state,
         answer: copyArray,
-
       };
     case "nextQuestion":
+      console.log('hi')
       return { ...state, index: state.index + 1, };
     case "prevQuestion":
       return { ...state, index: state.index - 1,  };
     case "finish":
       const pointsSum = state.answer.reduce((acc,cur,i) => {
-        return cur === state.questions[i].correct_option - 1// Check if the selected answer is correct
+        return cur === state.questions[i].correct_option // Check if the selected answer is correct
             ? acc + state.questions[i].score // Add the question's points if correct
             : acc;
       }, 0)
@@ -87,6 +95,7 @@ function reducer(state, action) {
         ...state,
         status: "finished",
         points: pointsSum,
+        seconds: state.seconds -state.secondsRemaining
       };
     case "restart":
       return { ...initialState, questions: state.questions, status: "ready" };
@@ -109,7 +118,7 @@ function reducer(state, action) {
 
 function QuizProvider({ children }) {
   const [
-    { questions, status, index, answer, points,  secondsRemaining,age,gender,paymentPlan },
+    { questions, status, index, answer, points,  secondsRemaining,age,gender,paymentPlan,seconds },
     dispatch,
   ] = useReducer(reducer, getInitialState());
 
@@ -127,7 +136,7 @@ function QuizProvider({ children }) {
       points,
       age,
       gender,
-      paymentPlan
+      paymentPlan,seconds
     };
 
     localStorage.setItem("quizState", JSON.stringify(stateToSave));
@@ -140,7 +149,7 @@ function QuizProvider({ children }) {
     secondsRemaining,
     age,
     gender,
-    paymentPlan
+    paymentPlan,seconds
   ]);
   useEffect(function () {
     fetch(QUESTION_LINK)
@@ -163,7 +172,8 @@ function QuizProvider({ children }) {
         age,
         gender,
         dispatch,
-        paymentPlan
+        paymentPlan,
+        seconds
       }}
     >
       {children}

@@ -22,7 +22,7 @@ function QuizStartPage() {
 	useEffect(() => {
 
 		if (gender !== null && age !== null) {
-			navigate("/payment");
+			navigate('/answer/email')
 		} else if( status === 'finished' && gender === null) {
 			navigate("/gender");
 		}

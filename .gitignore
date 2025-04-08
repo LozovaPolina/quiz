@@ -1,0 +1,42 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+backend/
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Next.js
+.next/
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+
+# React Native
+.expo/
+
+# Misc
+*.log
+coverage/
+*.tgz

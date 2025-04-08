@@ -14,17 +14,16 @@
 	border-radius: 0.625rem;
 	cursor: pointer;
 }
-.gender__image {
-	background: grey;
 
-	height: 125px;
+.gender__image img {
+	height: 100%;
 	object-fit: cover;
 }
 .gender_item h3 {
-	justify-self: flex-end;
 	background: var(--color-green);
 	color: var(--color-light);
-	border-bottom: 0.625rem;
+	width: 101%;
 	margin-bottom: 0;
+	border: 2px solid var(--color-green);
 	border-end-end-radius: 0.625rem;
 }

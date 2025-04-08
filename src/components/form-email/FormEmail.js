@@ -6,7 +6,9 @@ import {POST_EMAIL_LINK,requestConfig} from "../../util/http";
 import {useHttp} from "../../hooks/usehttp";
 import {useNavigate} from "react-router";
 import './FormEmail.css'
+import {useQuiz} from "../../contexts/QuizContext";
 function FormEmail() {
+	const {gender,age,points,seconds} = useQuiz()
 	const navigate = useNavigate()
 	const {
 		value: emailValue,
@@ -22,11 +24,18 @@ function FormEmail() {
 		e.preventDefault();
 		const fd = new FormData(e.target);
 		const formData = Object.fromEntries(fd.entries());
+		console.log({
+			email: formData.email,
+			gender,
+			age: +age,
+			score: points,
+			time_test: seconds
+		});
 		sendRequest(
-			JSON.stringify({customer: formData,})
+			JSON.stringify({email: formData.email,gender, age: +age, score:points, time_test:seconds })
 		);
 	}
-
+	// Example { "gender": "F", "age": "2", "email": "artem.kovalyk79@gmail.com", "score": "1123111", "time_test": 1 }
 	let actions = (
 		<>
 			<button type="submit" disabled={true} className="btn btn-form">Send</button>

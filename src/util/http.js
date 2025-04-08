@@ -1,5 +1,4 @@
-export const QUESTION_LINK = "http://localhost:8000/questions";
-export const POST_EMAIL_LINK = "http://localhost:3000/email"
+export const QUESTION_LINK = "http://127.0.0.1:8000/api/questions";
 export const requestConfig = {
     method: "POST",
     headers: {
@@ -9,3 +8,5 @@ export const requestConfig = {
 
 
 
+
+export const POST_EMAIL_LINK = "http://127.0.0.1:8000/api/result/"

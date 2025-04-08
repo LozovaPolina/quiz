@@ -270,3 +270,19 @@ h4 {
   margin:0 auto;
   padding-bottom: 20px;
 }
+.btn-image {
+  display: block;
+  font-family: inherit;
+  color: inherit;
+  font-size: 2rem;
+  border: 2px solid var(--color-dark);
+  background-color: var(--color-light);
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.img-option img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
